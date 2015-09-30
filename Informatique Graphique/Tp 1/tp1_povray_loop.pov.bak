@@ -1,0 +1,32 @@
+// inclusion des couleurs pr?d?finies
+#include "colors.inc"
+
+// d?finition de la couleur de fond
+background { color Cyan }
+   
+plane {<0,1,0>,0 pigment {color Red}}  
+   
+// positionnement de la cam?ra
+camera {
+    location <12,40,12>
+    look_at <12,0,12>
+}
+
+// d?finition d'une source
+light_source { <-40, 40, -40>color White}
+
+// d?finition d'une sph?re
+#declare I=0;
+#while (I < 9)
+ #declare J=0;
+ #while (J < 9)
+   sphere {
+   <I*3, 1, J*3>, 1
+   texture {
+     pigment { color Yellow }
+   }
+}
+ #declare J=J+1;
+ #end
+#declare I=I+1;
+#end
